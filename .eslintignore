@@ -1,0 +1,9 @@
+# compiled output
+dist/
+
+# tests config
+coverage/
+
+# dependencies
+node_modules/
+package-lock.json
