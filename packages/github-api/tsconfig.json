@@ -1,0 +1,17 @@
+{
+  "extends": "@jhonnar/tsconfig/backend.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "allowJs": true,
+  },
+  "include": [
+    "./src",
+    "./test"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
