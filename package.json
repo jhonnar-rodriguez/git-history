@@ -1,9 +1,23 @@
 {
   "private": true,
+  "author": {
+    "email": "jhonnar.rodriguez@gmail.com",
+    "name": "Jhonnar Rodriguez"
+  },
+  "description": "Easily track changes across repositories, manage dependencies, and ensure that all parts of your project are working together seamlessly for our git-tree app.",
+  "keywords": [
+    "turbo",
+    "nestjs",
+    "vite",
+    "react",
+    "airbnb",
+    "eslint"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint --",
+    "lint:fix": "turbo run lint:fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
