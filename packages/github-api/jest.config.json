@@ -1,0 +1,29 @@
+{
+  "preset": "ts-jest",
+  "coverageReporters": [
+    "lcov",
+    "text",
+    "clover"
+  ],
+  "testEnvironment": "node",
+  "setupFiles": [
+    "dotenv/config"
+  ],
+  "setupFilesAfterEnv": [
+    "./test/setup.ts"
+  ],
+  "moduleFileExtensions": [
+    "ts",
+    "js"
+  ],
+  "transform": {
+    "^.+\\.(ts)$": "ts-jest"
+  },
+  "testMatch": [
+    "**/?(*.)+(spec|test).[jt]s?(x)"
+  ],
+  "coverageDirectory": "./coverage",
+  "coveragePathIgnorePatterns": [
+    "/node_modules/"
+  ]
+}
