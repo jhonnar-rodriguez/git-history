@@ -34,7 +34,6 @@ export class OctokitHelper {
     options?: any,
   ): Promise<T> {
     const additionalOptions = options || {};
-    console.log({ pagination, additionalOptions });
     const request = await this.octokit.request(url, {
       owner: this.owner,
       repo: this.repo,

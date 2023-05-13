@@ -1,0 +1,50 @@
+name: Development Workflow
+
+on:
+  push:
+    branches: [main, stage, qa]
+  pull_request:
+    branches: [main, stage, qa]
+    types: [opened, synchronize]
+
+jobs:
+  avoid-redundancy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel previous redundant build
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.14.0]
+
+    steps:
+      - name: Check Out Repository Code
+        uses: actions/checkout@v3
+        with:
+          # Just fetching the last commit
+          fetch-depth: 0
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Running Linter
+        run: npm run lint
+
+      - name: Running Tests
+        run: npm run test
+
+      - name: Building the Application
+        run: npm run build
+
