@@ -14,7 +14,7 @@ export type EnvironmentConfig = {
   github: Github;
 };
 
-export default registerAs(
+export const ENVIRONMENT_CONFIG = registerAs(
   'environment',
   (): EnvironmentConfig => ({
     appPort: parseInt(process.env.APP_PORT, 10) || 3000,

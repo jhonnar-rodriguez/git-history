@@ -6,8 +6,8 @@
     "name": "Jhonnar Rodriguez"
   },
   "description": "Centralize the requests that will be used by the api",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/main.js",
+  "types": "./dist/main.d.ts",
   "private": true,
   "license": "UNLICENSED",
   "keywords": [
