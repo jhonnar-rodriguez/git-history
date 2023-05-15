@@ -1,10 +1,4 @@
-import { NestFactory } from '@nestjs/core';
+export * from './core';
+export * from './github';
 
-import { AppModule } from './app.module';
-
-async function bootstrap() {
-  const app = await NestFactory.createApplicationContext(AppModule);
-  // FYI: If you want to test the services you can follow this documentation: https://docs.nestjs.com/standalone-applications
-  await app.close();
-}
-bootstrap();
+// FYI: If you want to test the services you can follow this documentation: https://docs.nestjs.com/standalone-applications

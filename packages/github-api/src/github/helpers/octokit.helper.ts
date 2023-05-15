@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { Octokit } from '@octokit/core';
 
-import envConfig from '../../core/config/env.config';
+import { ENVIRONMENT_CONFIG } from '../../core/config';
 import { PaginationDto } from '../dtos';
 
 @Injectable()
@@ -14,8 +14,8 @@ export class OctokitHelper {
   private repo: string;
 
   constructor(
-    @Inject(envConfig.KEY)
-    private environment: ConfigType<typeof envConfig>,
+    @Inject(ENVIRONMENT_CONFIG.KEY)
+    private environment: ConfigType<typeof ENVIRONMENT_CONFIG>,
   ) {
     const { github, appTimezone, apiUrl } = this.environment;
     this.owner = github.owner;
