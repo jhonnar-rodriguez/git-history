@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
@@ -5,9 +6,17 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      forbidNonWhitelisted: true,
+      forbidUnknownValues: true,
+      whitelist: true,
+    }),
+  );
+  app.setGlobalPrefix('api');
   app.enableCors();
 
-  if (['development', 'development', 'local'].includes(process.env.NODE_ENV)) {
+  if (!['production', 'qa', 'staging'].includes(process.env.NODE_ENV)) {
     const options = new DocumentBuilder()
       .setTitle('Git History')
       .setDescription(
